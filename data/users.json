@@ -1,0 +1,19 @@
+[
+  {
+    "id": "beebebe0-8adc-47fe-a6fe-0c9939910c46",
+    "username": "admin",
+    "email": "admin@property.com",
+    "password": "$2b$10$GGaomgSekpaimcLZy/ACOe1LhaP8A72xljl.pyn51/wFf4zkNaTLu",
+    "first_name": "Admin",
+    "last_name": "User",
+    "profile_image_url": null,
+    "role": "admin",
+    "created_at": "2025-09-23T21:52:45.780Z",
+    "updated_at": "2025-09-23T21:52:45.780Z",
+    "createdAt": "2025-09-23T21:52:45.780Z",
+    "updatedAt": "2025-09-23T21:52:45.780Z",
+    "firstName": "Admin",
+    "lastName": "User",
+    "profileImageUrl": null
+  }
+]
