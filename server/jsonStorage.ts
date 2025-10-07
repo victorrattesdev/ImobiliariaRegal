@@ -119,7 +119,11 @@ export class JsonStorage implements IStorage {
         properties = properties.filter(p => p.bathrooms >= filters.minBaths!);
       }
       if (filters.city) {
-        properties = properties.filter(p => p.city.toLowerCase().includes(filters.city!.toLowerCase()));
+        properties = properties.filter(p => 
+          p.city.toLowerCase().includes(filters.city!.toLowerCase()) ||
+          p.address?.toLowerCase().includes(filters.city!.toLowerCase()) ||
+          p.location.toLowerCase().includes(filters.city!.toLowerCase())
+        );
       }
       if (filters.state) {
         properties = properties.filter(p => p.state.toLowerCase().includes(filters.state!.toLowerCase()));

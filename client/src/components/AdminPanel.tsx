@@ -333,7 +333,7 @@ export default function AdminPanel() {
           <p className="text-sm text-muted-foreground mb-2">
             Arraste e solte as imagens aqui, ou clique para procurar
           </p>
-          <Button variant="outline" size="sm" data-testid={`button-${testIdPrefix}-upload-images`}>
+          <Button type="button" variant="outline" size="sm" data-testid={`button-${testIdPrefix}-upload-images`}>
             Selecione os arquivos
           </Button>
           <input

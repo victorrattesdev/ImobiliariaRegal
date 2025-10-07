@@ -239,9 +239,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Image upload endpoint for properties (protected)
-  app.post("/api/properties/upload-images", isAuthenticated, upload.array('images', 10), async (req, res) => {
+  app.post("/api/properties/upload-images", isAuthenticated, (req, res, next) => {
+    upload.any()(req, res, (err) => {
+      if (err) {
+        console.error('Multer error:', err);
+        return res.status(400).json({ 
+          success: false, 
+          error: err.message || 'Failed to upload images' 
+        });
+      }
+      next();
+    });
+  }, async (req, res) => {
     try {
-      if (!req.files || req.files.length === 0) {
+      if (!req.files || !Array.isArray(req.files) || req.files.length === 0) {
         return res.status(400).json({ 
           success: false, 
           error: 'No images uploaded' 

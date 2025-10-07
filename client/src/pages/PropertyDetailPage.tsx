@@ -255,16 +255,24 @@ export default function PropertyDetailPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b bg-card">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Button
-            variant="ghost"
-            onClick={() => setLocation("/")}
-            data-testid="button-back"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Voltar
-          </Button>
-          <div className="flex items-center gap-2">
+        <div className="container mx-auto px-4 py-4 grid grid-cols-3 items-center">
+          <div className="flex justify-start">
+            <Button
+              variant="ghost"
+              onClick={() => setLocation("/")}
+              data-testid="button-back"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Voltar
+            </Button>
+          </div>
+          
+          <div className="flex items-center justify-center gap-2">
+            <Home className="h-5 w-5 text-primary" />
+            <span className="text-lg font-semibold">Regal Imobiliária</span>
+          </div>
+          
+          <div className="flex items-center justify-end gap-2">
             <Button
               variant="outline"
               size="icon"
@@ -407,7 +415,7 @@ export default function PropertyDetailPage() {
                       <h3 className="text-xl font-semibold mb-3">
                         Pontos Fortes
                       </h3>
-                      <div className="grid gap-2">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {property.strongPoints.map((point, index) => (
                           <div
                             key={index}
@@ -507,25 +515,22 @@ export default function PropertyDetailPage() {
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                       <Home className="h-8 w-8 text-primary" />
                     </div>
-                    <h4 className="font-semibold">Maria do Carmo Regal</h4>
+                    <h4 className="font-semibold">Corretor da Regal Imóveis</h4>
                     <p className="text-sm text-muted-foreground">
                       Especialista em Imóveis
                     </p>
                   </div>
                   <Separator />
                   <div className="space-y-3">
-                    <Button asChild className="w-full" data-testid="button-call-agent">
-                      <a href="https://wa.me/5521999942595" target="_blank" rel="noopener noreferrer">
-                        <Phone className="h-4 w-4 mr-2" />
-                        Entrar em Contato
-                      </a>
+                    <Button className="w-full" data-testid="button-call-agent">
+                      <Phone className="h-4 w-4 mr-2" />
+                      Entrar em Contato
                     </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Schedule Viewing */}           
           </div>
         </div>
       </div>
