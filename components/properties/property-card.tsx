@@ -29,10 +29,10 @@ function locationLine(property: Property) {
 }
 
 export function PropertyCard({ property, preview = false }: Props) {
-  const images =
-    property.images?.length > 0
-      ? property.images
-      : ["/assets/generated_images/Luxury_house_hero_image_f495f766.png"];
+    const images =
+        property.images && property.images.length > 0
+            ? property.images
+            : ["/assets/generated_images/Luxury_house_hero_image_f495f766.png"];
   const [index, setIndex] = useState(0);
   const current = images[Math.min(index, images.length - 1)];
 

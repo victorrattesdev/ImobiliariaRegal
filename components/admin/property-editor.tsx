@@ -57,7 +57,7 @@ type FormState = {
   images: string[];
 };
 
-const PRESET_AMENITY_VALUES = new Set(AMENITIES.map((a) => a.value));
+const PRESET_AMENITY_VALUES = new Set<string>(AMENITIES.map((a) => a.value));
 
 function resolveAmenityValue(raw: string): string {
   const trimmed = raw.trim().replace(/\s+/g, " ");
