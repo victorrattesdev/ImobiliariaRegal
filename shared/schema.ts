@@ -32,7 +32,7 @@ export const properties = pgTable("properties", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   title: text("title").notNull(),
   description: text("description"),
-  price: decimal("price", { precision: 12, scale: 2 }).notNull(),
+  price: decimal("price", { precision: 15, scale: 2 }).notNull(),
   location: text("location").notNull(),
   address: text("address"),
   city: text("city").notNull(),
@@ -50,7 +50,7 @@ export const properties = pgTable("properties", {
   amenities: text("amenities").array().default(sql`'{}'::text[]`),
   carSpaces: integer("car_spaces").default(1), // 1, 2, 3, or 4 car spaces
   strongPoints: text("strong_points").array().default(sql`'{}'::text[]`), // list of property strong points
-  iptu: decimal("iptu", { precision: 10, scale: 2 }), // Brazilian property tax (IPTU)
+  iptu: decimal("iptu", { precision: 15, scale: 2 }), // Brazilian property tax (IPTU)
   mapEmbedUrl: text("map_embed_url"), // embed map URL for the property
   featured: boolean("featured").default(false),
   status: text("status").notNull().default('active'), // active, pending, sold, inactive
@@ -76,8 +76,8 @@ export type User = typeof users.$inferSelect;
 
 // Login schema
 export const loginSchema = z.object({
-  username: z.string().min(3, "Username must be at least 3 characters"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
+  username: z.string().min(3, "Usuário deve ter pelo menos 3 caracteres"),
+  password: z.string().min(6, "Senha deve ter pelo menos 6 caracteres"),
 });
 
 export type LoginCredentials = z.infer<typeof loginSchema>;
